@@ -1,13 +1,19 @@
 import React from 'react';
-import {View, Text, Button, Linking} from 'react-native';
+import {View, Text, Button} from 'react-native';
 
-const Screen2 = () => {
-  const Url_A = 'myapp://app/a';
+const Screen2 = ({navigation, route}: any) => {
+  const {
+    params: {date},
+  } = route;
 
   return (
     <View>
-      <Text>Screen2</Text>
-      <Button onPress={() => Linking.openURL(Url_A)} title="Go to Screen1" />
+      <Text>{date && <Text>{date.toString()}</Text>}</Text>
+
+      <Button
+        onPress={() => navigation.navigate('Linking')}
+        title="Go to Linking"
+      />
     </View>
   );
 };
